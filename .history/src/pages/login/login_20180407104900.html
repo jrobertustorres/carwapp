@@ -1,0 +1,49 @@
+<ion-header>
+
+    <ion-navbar color="navbarColor">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>
+            Login
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="loginForm" (ngSubmit)="submeterLogin()">
+
+        <ion-item>
+            <ion-label stacked color="dark">E-mail</ion-label>
+            <!-- <ion-input [(ngModel)]="usuarioEntity.login" formControlName="login" type="email" placeholder="Ex.: nome@email.com" spellcheck="false" autocapitalize="off"></ion-input> -->
+            <ion-input formControlName="login" type="email" placeholder="Ex.: nome@email.com" spellcheck="false" autocapitalize="off"></ion-input>
+        </ion-item>
+        <div *ngIf="(!loginForm.get('login').valid && loginForm.get('login').touched) && !loginForm.get('login').hasError('pattern')" [ngClass]="'class-error-form'">campo obrigatório</div>
+        <div *ngIf="loginForm.get('login').hasError('pattern')" [ngClass]="'class-error-form'">e-mail inválido</div>
+
+        <ion-item>
+            <ion-label stacked color="dark">Senha</ion-label>
+            <!-- <ion-input [(ngModel)]="usuarioEntity.senha" formControlName="senha" type="password" placeholder="Digite sua senha"></ion-input> -->
+            <ion-input formControlName="senha" type="password" placeholder="Digite sua senha"></ion-input>
+        </ion-item>
+        <div *ngIf="!loginForm.get('senha').valid && loginForm.get('senha').touched" [ngClass]="'class-error-form'">campo obrigatório</div>
+
+        <button ion-button block type="submit" color="navbarColor" class="margin-button-save">ENTRAR</button>
+    </form>
+    <div class="forgot-pass-style-div">
+        <a (click)="goRecuperarSenha()" class="botao01">Esqueci minha senha</a>
+    </div>
+
+    <button ion-button icon-left block color="navbarColor">
+            <ion-icon ios="logo-facebook" md="logo-facebook" class="margin-right-icon"></ion-icon>
+            <span class="span-style">LOGIN COM FACEBOOK</span>
+          </button>
+
+    <div class="forgot-pass-style-div">
+        Não tem cadastro ainda?
+        <a (click)="criarConta()" class="botao01">Criar conta</a>
+    </div>
+
+
+</ion-content>
