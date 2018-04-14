@@ -1,0 +1,40 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                              <ion-icon name="menu"></ion-icon>
+                          </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Oficinas encontradas</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <div>
+        <ion-item class="content-stable">
+            <button ion-button clear item-end icon-left (click)="openMap()">
+              <ion-icon ios="ios-map" md="md-map"></ion-icon>
+              <h3>VER NO MAPA</h3>
+          </button>
+            <!-- <button ion-button clear item-end icon-left color="danger" *ngIf="vagaDetalheEntity.isCandidatado" style="margin-top: 20px;" (click)="verificaCandidatoVaga(vagaDetalheEntity.idVaga)">
+              <ion-icon ios="ios-close" md="md-close"></ion-icon>
+              <h3>{{ 'BTN_DESCARTAR_VAGA' | translate }}</h3>
+          </button> -->
+        </ion-item>
+    </div>
+
+    <ion-list>
+        <!-- <ion-item *ngFor="let servico of servicos">{{servico}}</ion-item> -->
+        <!-- <button ion-item *ngFor="let servico of servicos" text-wrap (click)="detalheVeiculo(veiculo.idVeiculo, veiculo.placa)"> -->
+        <button ion-item *ngFor="let oficina of oficinas" text-wrap (click)="openOficinasList()">
+                <!-- <ion-icon item-left ios="ios-build" md="md-build" style="color: #000;"></ion-icon> -->
+                <!-- <ion-icon [name]="servico.icon" style="color: #000;"></ion-icon> -->
+                <!-- <img src=/img/{{servico.icon}}/> -->
+                <h4 style="color: #000;">{{ oficina }}</h4>
+            </button>
+    </ion-list>
+
+</ion-content>

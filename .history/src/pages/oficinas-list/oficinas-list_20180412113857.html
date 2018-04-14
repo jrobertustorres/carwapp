@@ -1,0 +1,55 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                              <ion-icon name="menu"></ion-icon>
+                          </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Oficinas encontradas</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <div>
+        <ion-item class="content-stable">
+            <button ion-button clear item-end icon-left (click)="openMap()">
+              <ion-icon ios="ios-map" md="md-map"></ion-icon>
+              <h3>VER NO MAPA</h3>
+          </button>
+        </ion-item>
+    </div>
+
+    <ion-list>
+        <ion-list>
+            <ion-item text-wrap *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20]">
+                <ion-label>
+                    Item {{ item }}
+                    <button class="item-cover disable-hover" ion-button="item-cover" type="button" (click)="edit()">
+                        <span class="button-inner"></span>
+                        <div class="button-effect"></div>
+                    </button>
+                </ion-label>
+                <ion-checkbox color="royal" checked="false"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <!-- <ion-item ion-item *ngFor="let oficina of oficinas" text-wrap>
+            <ion-label style="color: #000;"><strong>{{ oficina.nome }}</strong></ion-label>
+            <p>
+                <ion-label style="color: #000;">{{ oficina.endereco }}</ion-label>
+            </p>
+            <ion-checkbox [(ngModel)]="oficina.id"></ion-checkbox>
+        </ion-item> -->
+
+        <!-- <button ion-item *ngFor="let oficina of oficinas" text-wrap (click)="openOficinasList()"> -->
+        <!-- <ion-item ion-item *ngFor="let oficina of oficinas" text-wrap>
+            <h4 style="color: #000;"><strong>{{ oficina.nome }}</strong></h4>
+            <h4 style="color: #000;">{{ oficina.endereco }}</h4>
+            <ion-icon ios="ios-star-outline" md="md-star-outline" style="color: #000;"></ion-icon>
+        </ion-item> -->
+        <!-- </button> -->
+    </ion-list>
+
+</ion-content>

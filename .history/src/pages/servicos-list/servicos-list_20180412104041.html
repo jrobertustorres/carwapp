@@ -1,0 +1,25 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                          <ion-icon name="menu"></ion-icon>
+                      </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Selecione o serviço</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-stable">
+
+    <ion-list>
+        <!-- <ion-item *ngFor="let servico of servicos">{{servico}}</ion-item> -->
+        <!-- <button ion-item *ngFor="let servico of servicos" text-wrap (click)="detalheVeiculo(veiculo.idVeiculo, veiculo.placa)"> -->
+        <button ion-item *ngFor="let servico of servicos" text-wrap>
+            <p><ion-icon ios="ios-build" md="md-build"></ion-icon>{{ servico }}</p>
+        </button>
+    </ion-list>
+
+</ion-content>

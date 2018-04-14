@@ -1,0 +1,47 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                              <ion-icon name="menu"></ion-icon>
+                          </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Oficinas encontradas</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <div>
+        <ion-item class="content-stable">
+            <button ion-button clear item-end icon-left (click)="openMap()">
+              <ion-icon ios="ios-map" md="md-map"></ion-icon>
+              <span>VER NO MAPA</span>
+          </button>
+            <button ion-button clear item-end icon-left (click)="openMap()">
+              <ion-icon ios="ios-map" md="md-map"></ion-icon>
+              <span>LANÇAR ORÇAMENTO</span>
+          </button>
+        </ion-item>
+    </div>
+
+    <ion-list>
+        <ion-item ion-item *ngFor="let oficina of oficinas" text-wrap>
+            <ion-label style="color: #000;"><strong>{{ oficina.nome }}</strong></ion-label>
+            <p>
+                <ion-label style="color: #000;">{{ oficina.endereco }}</ion-label>
+            </p>
+            <ion-icon ios="ios-star-outline" md="md-star-outline" style="color: #000;"></ion-icon> -->
+            <ion-checkbox [(ngModel)]="oficina.id"></ion-checkbox>
+        </ion-item>
+        <!-- <button ion-item *ngFor="let oficina of oficinas" text-wrap (click)="openOficinasList()"> -->
+        <!-- <ion-item ion-item *ngFor="let oficina of oficinas" text-wrap>
+            <h4 style="color: #000;"><strong>{{ oficina.nome }}</strong></h4>
+            <h4 style="color: #000;">{{ oficina.endereco }}</h4>
+            <ion-icon ios="ios-star-outline" md="md-star-outline" style="color: #000;"></ion-icon>
+        </ion-item> -->
+        <!-- </button> -->
+    </ion-list>
+
+</ion-content>
