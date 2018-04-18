@@ -45,6 +45,7 @@ export class ServicosListPage {
     .findServicoByIdTipoServico(idTipoServico)
     .then((dados) => {
     this.servicos = dados;
+    console.log(this.servicos);
     this.loading.dismiss();
     }).catch(err => {
       this.loading.dismiss();
@@ -56,8 +57,10 @@ export class ServicosListPage {
   }
 
 
-  openOficinasList() {
-    this.navCtrl.push(OficinasListPage);
+  openOficinasList(idServico) {
+    this.navCtrl.push(OficinasListPage, {
+      idServico: idServico
+    })
   }
 
 }
