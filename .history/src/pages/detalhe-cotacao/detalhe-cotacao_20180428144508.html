@@ -1,0 +1,21 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Resposta</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+    <ion-item class="border-top-color">
+        <p>Código: {{ detalheCotacaoEntity.idOrcamento }}</p>
+        <p>Status: {{ detalheCotacaoEntity.statusOrcamentoEnum }}</p>
+        <p>Data de abertura: {{ detalheCotacaoEntity.dataOrcamento }}</p>
+    </ion-item>
+
+</ion-content>

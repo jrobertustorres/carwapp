@@ -1,0 +1,52 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Resposta</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+    <!-- <ion-item class="border-top-color"> -->
+    <ion-card>
+        <ion-card-header>
+            <b>Dados da resposta</b>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Número do orçamento: {{ detalheCotacaoEntity.idOrcamento }}</p>
+            <p>Status: {{ detalheCotacaoEntity.statusCotacaoEnum }}</p>
+            <p>Valor: {{ detalheCotacaoEntity.valorTotalFormat }}</p>
+            <p>Tipo de pagamento: {{ detalheCotacaoEntity.tipoPagamento }}</p>
+            <p>Prazo de pagamento: {{ detalheCotacaoEntity.prazoPagamento }}</p>
+            <p>Data de entrega: {{ detalheCotacaoEntity.dataEntregaFormat }}</p>
+            <p>Validade do orçamento: {{ detalheCotacaoEntity.validadeFormat }}</p>
+            <p>Observação: {{ detalheCotacaoEntity.observacao }}</p>
+
+            <p>Número do orçamento: {{ detalheCotacaoEntity.idOrcamento }}</p>
+            <p>Status: {{ detalheCotacaoEntity.statusCotacaoEnum }}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- <ion-card>
+        <p>Número do orçamento: {{ detalheCotacaoEntity.idOrcamento }}</p>
+        <p>Status: {{ detalheCotacaoEntity.statusCotacaoEnum }}</p>
+        <p>Valor: {{ detalheCotacaoEntity.valorTotalFormat }}</p>
+        <p>Tipo de pagamento: {{ detalheCotacaoEntity.tipoPagamento }}</p>
+        <p>Prazo de pagamento: {{ detalheCotacaoEntity.prazoPagamento }}</p>
+        <p>Data de entrega: {{ detalheCotacaoEntity.dataEntregaFormat }}</p>
+        <p>Validade do orçamento: {{ detalheCotacaoEntity.validadeFormat }}</p>
+        <p>Observação: {{ detalheCotacaoEntity.observacao }}</p>
+    </ion-card> -->
+
+    <!-- <ion-card>
+        <p>Número do orçamento: {{ detalheCotacaoEntity.idOrcamento }}</p>
+        <p>Status: {{ detalheCotacaoEntity.statusCotacaoEnum }}</p>
+
+    </ion-card> -->
+
+</ion-content>
