@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>
+            Galeria de imagens
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="closeModal()">
+      <ion-icon ios="ios-close" md="md-close"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="content-stable">
+
+    <!-- <ion-slides *ngFor="let imagem of imagensResult" (ionSlideDidChange)="slideChanged()"> -->
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slide *ngFor="let imagem of imagensResult">
+            <!-- <img src="{{ imagem }}" class="custom-avatar" /> -->
+            <img src="{{ imagensResult }}" />
+        </ion-slide>
+        <!-- <ion-slide>
+            <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Slide 3</h1>
+        </ion-slide> -->
+    </ion-slides>
+
+</ion-content>
