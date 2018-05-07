@@ -1,0 +1,76 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Resposta</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+    <!-- <ion-item class="border-top-color"> -->
+    <ion-card *ngIf="detalheCotacaoEntity.idOrcamento != null" text-wrap>
+        <div padding *ngIf="detalheCotacaoEntity.statusCotacaoEnum == 'CONCLUIDO'">
+            <p>
+                <ion-icon ios="ios-star" md="md-star" color="secondaryColor" (click)="modalAvaliacao(fab)"> Avalie este fornecedor</ion-icon>
+            </p>
+        </div>
+
+        <div padding>
+            <p>Nr. orçamento: <b>{{ detalheCotacaoEntity.idOrcamento }}</b></p>
+            <p class="capitalized">Status: <b [ngClass]="(orcamento.statusOrcamentoEnum == 'Respondido') ? 'corAzul' : 'corVerde'">{{ detalheCotacaoEntity.statusCotacaoEnum | lowercase }}</b></p>
+            <p>{{ detalheCotacaoEntity.nomeMarcaVeiculo }} {{ detalheCotacaoEntity.nomeModeloVeiculo }} - {{ detalheCotacaoEntity.corVeiculo }}</p>
+            <p>{{ detalheCotacaoEntity.placaVeiculo }}</p>
+            <hr style="border-top: 1px solid #999;">
+        </div>
+        <!-- <ion-card-content>
+            <p>{{ detalheCotacaoEntity.nomeMarcaVeiculo }} {{ detalheCotacaoEntity.nomeModeloVeiculo }} - {{ detalheCotacaoEntity.corVeiculo }}</p>
+            <p>{{ detalheCotacaoEntity.placaVeiculo }}</p>
+        </ion-card-content> -->
+
+        <ion-card-header>
+            <b>Dados do fornecedor</b>
+        </ion-card-header>
+        <ion-card-content>
+            <p><b>{{ detalheCotacaoEntity.nomeFornecedor }}</b></p>
+            <p>E-mail: {{ detalheCotacaoEntity.emailFornecedor }}</p>
+            <p>Telefone: {{ detalheCotacaoEntity.telefoneFornecedor }}</p>
+            <p *ngIf="detalheCotacaoEntity.telefone2Fornecedor">Telefone 2: {{ detalheCotacaoEntity.telefone2Fornecedor }}</p>
+            <p *ngIf="detalheCotacaoEntity.siteFornecedor">Site: {{ detalheCotacaoEntity.siteFornecedor }}</p>
+            <p>Endereço: {{ detalheCotacaoEntity.enderecoFornecedorFormat }}</p>
+            <hr style="border-top: 1px solid #999;">
+        </ion-card-content>
+
+        <ion-card-header>
+            <b>Dados da resposta</b>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Valor: R$ {{ detalheCotacaoEntity.valorTotalFormat }}</p>
+            <p>Tipo de pagamento: {{ detalheCotacaoEntity.tipoPagamento }}</p>
+            <p>Prazo de pagamento: {{ detalheCotacaoEntity.prazoPagamento }}</p>
+            <p>Data de entrega: {{ detalheCotacaoEntity.dataEntregaFormat }}</p>
+            <p>Validade do orçamento: {{ detalheCotacaoEntity.validadeFormat }}</p>
+            <p>Observação: {{ detalheCotacaoEntity.observacao }}</p>
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-fab bottom right #fab *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'">
+        <button ion-fab><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab mini color="secondary" (click)="escolherCotacao(fab)">
+                    <ion-icon ios="ios-paper-plane" md="md-paper-plane"></ion-icon>
+                    <div  class="label"dir="rtl">Escolher Fornecedor</div>
+                </button>
+            <button ion-fab mini color="danger" (click)="modalImagensFornecedor(fab)">
+                <ion-icon ios="ios-images" md="md-images"></ion-icon>
+                    <div  class="label"dir="rtl">Galeria de Imagens</div>
+                </button>
+        </ion-fab-list>
+    </ion-fab>
+
+</ion-content>

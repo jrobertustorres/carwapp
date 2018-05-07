@@ -1,0 +1,71 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <ion-title>Detalhes</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <ion-card text-wrap *ngIf="fornecedorEntity.nome">
+        <!-- <div style="width: 50%; height: 50%; margin: auto;"><img src="assets/imgs/no-photo.png" *ngIf="fornecedorEntity.imagemLogo == null" /></div>
+        <div style="width: 50%; height: 50%; margin: auto;"><img [src]="sanitizer.bypassSecurityTrustUrl(fornecedorEntity.imagemLogo)" *ngIf="fornecedorEntity.imagemLogo" /></div> -->
+        <ion-card-content>
+            <ion-card-title>
+                {{ fornecedorEntity.nome }}
+            </ion-card-title>
+            <p>
+                CPF/CNPJ: {{ fornecedorEntity.cpfCnpj }}
+            </p>
+
+            <p>
+                Insc. Estadual: {{ fornecedorEntity.inscricaoEstadual }}
+            </p>
+
+            <p>
+                E-mail: {{ fornecedorEntity.email }}
+            </p>
+
+            <p *ngIf="fornecedorEntity.site">
+                Site: {{ fornecedorEntity.site }}
+            </p>
+
+
+            <p>
+                Telefone:
+                <a ion-button clear item-end icon-right href="tel:+fornecedorEntity.telefone" style="margin-top: -5px;
+                margin-left: -15px; font-size: 13px;">
+                    <ion-icon ios="ios-call" md="md-call"> {{ fornecedorEntity.telefone }}</ion-icon>
+                </a>
+            </p>
+
+            <p>
+                Telefone 2:
+                <a ion-button clear item-end icon-right href="tel:+fornecedorEntity.telefone2" style="margin-top: -20px;
+                margin-left: -15px; font-size: 13px;">
+                    <ion-icon ios="ios-call" md="md-call"> {{ fornecedorEntity.telefone2 }}</ion-icon>
+                </a>
+            </p>
+
+            <p class="border-top-color" style="margin-top: 10px; margin-bottom: 10px;"></p>
+            <div style="margin-top: 10px;">
+                <p style="margin-top: 10px; margin-bottom: 10px;"><strong>Endereço</strong></p>
+
+                <p>
+                    {{ fornecedorEntity.endereco }} {{ fornecedorEntity.numeroEndereco }} {{ fornecedorEntity.complemento }}, </p>
+                <p>Bairro: {{ fornecedorEntity.bairro }}</p>
+                <p>{{ fornecedorEntity.nomeCidade }} - {{ fornecedorEntity.nomeEstado }}</p>
+                <!-- <p class="border-top-color" style="margin-top: 10px; margin-bottom: 10px;"></p> -->
+            </div>
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-fab #fab top right *ngIf="fornecedorEntity.nome">
+        <button ion-fab color="primary" (click)="modalImagensFornecedorDetalhe(fab)">
+            <ion-icon ios="ios-images" md="md-images"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>
