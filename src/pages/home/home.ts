@@ -51,7 +51,6 @@ export class HomePage {
         content: 'Aguarde...'
       });
       this.loading.present();
-
       this.veiculoService.possuiVeiculo()
       .then((possuiVeiculo: VeiculoEntity) => {
         this.possuiVeiculo = possuiVeiculo;
