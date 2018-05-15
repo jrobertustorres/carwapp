@@ -1,0 +1,21 @@
+    page-oficinas-list {
+        ul {
+            padding: 0px;
+            margin-bottom: 2px;
+            margin-top: 1px;
+            &.rating li {
+                padding: 0px 0px !important;
+                background: none;
+                color: #ffb400;
+                ion-icon {
+                    font-size: 20px;
+                }
+            }
+        }
+        .alertCustomCss {
+            color: red!important;
+        }
+        .alert-md .alert-button {
+            color: green
+        }
+    }

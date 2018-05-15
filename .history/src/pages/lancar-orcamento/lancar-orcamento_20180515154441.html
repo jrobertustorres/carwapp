@@ -1,0 +1,35 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Lançar orçamento</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <p text-wraper>Você pode escolher uma data para o atendimento e uma observação, caso ache necessário.</p>
+    <form [formGroup]="lancarOrcamentoForm" (ngSubmit)="submeterOrcamento()">
+
+        <ion-item (click)="selecionaDataSolicitacao()">
+            <ion-label stacked style="color: #484848">Data do Atendimento</ion-label>
+            <ion-datetime formControlName="dataSolicitacao" name="dataSolicitacao" color="dark" displayFormat="DD/MM/YYYY" [(ngModel)]="orcamentoEntity.dataSolicitacao"></ion-datetime>
+            <!-- <ion-datetime formControlName="dataSolicitacao" disabled="true" name="dataSolicitacao" displayFormat="DD/MM/YYYY" [(ngModel)]="orcamentoEntity.dataSolicitacao"></ion-datetime> -->
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Observação</ion-label>
+            <ion-textarea formControlName="descricao" color="dark" maxLength="100" [(ngModel)]="orcamentoEntity.descricao" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></ion-textarea>
+        </ion-item>
+        <div *ngIf="lancarOrcamentoForm.get('descricao').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 100 caracteres</div>
+
+        <div>
+            <button ion-button block type="submit" color="button-save-color" class="margin-button-save span-style-color">ENVIAR ORÇAMENTO</button>
+        </div>
+    </form>
+
+</ion-content>

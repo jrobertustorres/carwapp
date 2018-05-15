@@ -1,0 +1,25 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Lançar orçamento</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="content-stable">
+    <form [formGroup]="lancarOrcamentoForm" (ngSubmit)="submeterOrcamento()">
+
+        <ion-item>
+            <ion-label stacked>Observação</ion-label>
+            <ion-input formControlName="descricao" color="dark" [(ngModel)]="orcamentoEntity.descricao" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></ion-input>
+        </ion-item>
+        <div *ngIf="lancarOrcamentoForm.get('descricao').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 400 caracteres</div>
+
+    </form>
+
+</ion-content>
