@@ -1,0 +1,35 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Detalhe do histórico</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <div padding>
+        <p>Nr. orçamento: <b>{{ historicoVeiculoEntity.idOrcamentoFormat }}</b></p>
+        <p>Data do serviço: <b>{{ historicoVeiculoEntity.dataServicoFormat }}</b></p>
+        <p>Serviço: <b>{{ historicoVeiculoEntity.descricaoServico }}</b></p>
+        <p><b>{{ historicoVeiculoEntity.tipoServicoServicoFormat }}</b></p>
+
+        <hr style="border-top: 1px solid #999;">
+
+        <p>Fornecedor: <b>{{ historicoVeiculoEntity.nomeFornecedor }}</b></p>
+        <p>Observação do fornecedor: <b>{{ historicoVeiculoEntity.observacaoServicoFornecedor }}</b></p>
+
+        <hr style="border-top: 1px solid #999;">
+
+        <p>Placa do veículo: <b>{{ historicoVeiculoEntity.placaFrotaFormat }}</b></p>
+        <p>Km: <b>{{ historicoVeiculoEntity.kmVeiculoFormat }}</b></p>
+
+
+    </div>
+
+</ion-content>

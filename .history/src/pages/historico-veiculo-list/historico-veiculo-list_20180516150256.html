@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Lista de históricos</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="historicoList?.length == 0">
+        <div style="text-align: center;color: #484848;"><strong>Você ainda não possui nenhum histórico para esse veículo</strong></div>
+        <div style="text-align: center;">
+            <ion-icon style="font-size: 30px;color: #484848;" ios="ios-car" md="md-car"></ion-icon>
+        </div>
+        <!-- <div>
+            <button ion-button block (click)="inserirVeiculo()" color="navbarColor" class="margin-button-save span-style-color">Inserir veículo</button>
+        </div> -->
+    </div>
+
+    <ion-list text-wrap>
+        <button ion-item *ngFor="let historico of historicoList" text-wrap (click)="openDetalheHistorico(historico.idOrcamento)">
+          <p><strong>Orçamento: {{ historico.idOrcamentoFormat }}</strong></p>
+              <p>Data: {{ historico.dataServicoFormat }}</p>
+              <p>{{ historico.tipoServicoServicoFormat }}</p>
+          </button>
+    </ion-list>
+
+</ion-content>
