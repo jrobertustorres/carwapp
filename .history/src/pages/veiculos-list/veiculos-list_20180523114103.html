@@ -1,0 +1,56 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                  <ion-icon name="menu"></ion-icon>
+              </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Meus veículos</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+    <div text-wrap *ngIf="veiculosResult?.length > 0 && previousView == 'HomePage' && !historicoPage" style="text-align: center;">
+        <p><strong>Selecione o veículo no qual será feito o serviço</strong></p>
+    </div>
+    <div text-wrap *ngIf="veiculosResult?.length > 0 && historicoPage == true" style="text-align: center;">
+        <p><strong>Selecione um veículo para ver o histórico</strong></p>
+    </div>
+    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="veiculosResult?.length == 0">
+        <div style="text-align: center;color: #484848;"><strong>Você ainda não possui nenhum veículo cadastrado</strong></div>
+        <div style="text-align: center;">
+            <ion-icon style="font-size: 30px;color: #484848;" ios="ios-car" md="md-car"></ion-icon>
+        </div>
+        <div>
+            <button ion-button block (click)="inserirVeiculo()" color="navbarColor" class="margin-button-save span-style-color">Inserir veículo</button>
+        </div>
+    </div>
+    <ion-list>
+        <!-- <button ion-item *ngFor="let veiculo of veiculosResult" text-wrap (click)="detalheVeiculo(veiculo.idVeiculo, veiculo.placa)"> -->
+        <!-- <button ion-item *ngFor="let veiculo of veiculosResult" text-wrap (click)="callNextView(veiculo.idVeiculo, veiculo.placa)">
+            <p style="text-transform: uppercase;"><strong>{{ veiculo.placa }}</strong></p>
+            <p>{{ veiculo.nomeModelo }} {{ veiculo.cor }}</p>
+        </button> -->
+
+        <button ion-item (click)="itemClick()">
+                Item 1
+                <button item-right (click)="addClick();$event.stopPropagation();">Internal Button</button>
+        </button>
+    </ion-list>
+
+    <ion-fab bottom right *ngIf="veiculosResult?.length > 0 && previousView != 'HomePage' && !historicoPage">
+        <button ion-fab (click)="inserirVeiculo()"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+    </ion-fab>
+
+    <!-- <ion-fab bottom right #fab *ngIf="veiculosResult?.length > 0">
+        <button ion-fab mini color="danger"><ion-icon ios="ios-close" md="md-close"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab mini color="danger" (click)="inserirVeiculo()">
+                    <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                </button>
+        </ion-fab-list>
+    </ion-fab> -->
+
+</ion-content>
