@@ -27,16 +27,12 @@
         <ion-list>
             <ion-item>
 
-                <p (click)="showModalMarca()">
-                    <span class="marca-label-style my-label label label-md">Marca do veículo </span>
-                    <span *ngIf="!veiculoEntity.idVeiculo" class="marca-spam-style"> {{dadosMarca.marca}}
-                        <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
-                    </span>
-                    <!-- <span *ngIf="veiculoEntity.idVeiculo" class="marca-spam-style"> {{veiculoEntity.nomeMarca}}  -->
-                    <span *ngIf="veiculoEntity.idVeiculo" class="marca-spam-style"> {{dadosMarca.marca}}
-                        <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
-                    </span>
-                </p>
+                <ion-label class="my-label">Marca do veículo</ion-label>
+                <!-- <p class="my-label" (click)="showModalMarca()"> -->
+                <!-- <span style="color: #999; font-size: 13px;" class="my-label label label-md">Marca do veículo </span> -->
+                <span *ngIf="!veiculoEntity.idVeiculo" style="color: #000; font-size: 12px;" class="select select-md select-text"> {{dadosMarca.marca}}</span>
+                <span *ngIf="veiculoEntity.idVeiculo" style="color: #000; font-size: 12px;" class="select select-md select-text"> {{veiculoEntity.nomeMarca}}</span>
+                <!-- </p> -->
 
                 <!-- <ion-label class="my-label">Marca do veículo</ion-label>
                 <ion-select formControlName="idMarca" [(ngModel)]="veiculoEntity.idMarca" style="font-size: 12px;" (ionChange)="findListModeloVeiculo(veiculoEntity.idMarca)" cancelText="Cancelar">

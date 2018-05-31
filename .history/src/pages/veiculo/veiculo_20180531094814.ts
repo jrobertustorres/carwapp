@@ -265,6 +265,7 @@ export class VeiculoPage {
       if (data) {
         this.idMarca = data.idMarca;
         this.dadosMarca = data;
+        console.log(this.dadosMarca);
         this.findListModeloVeiculo(data.idMarca);
       }
     });

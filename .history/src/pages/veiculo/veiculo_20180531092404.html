@@ -28,14 +28,10 @@
             <ion-item>
 
                 <p (click)="showModalMarca()">
-                    <span class="marca-label-style my-label label label-md">Marca do veículo </span>
-                    <span *ngIf="!veiculoEntity.idVeiculo" class="marca-spam-style"> {{dadosMarca.marca}}
-                        <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
-                    </span>
-                    <!-- <span *ngIf="veiculoEntity.idVeiculo" class="marca-spam-style"> {{veiculoEntity.nomeMarca}}  -->
-                    <span *ngIf="veiculoEntity.idVeiculo" class="marca-spam-style"> {{dadosMarca.marca}}
-                        <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
-                    </span>
+                    <span style="color: #999; font-size: 13px;" class="ion-label my-label label label-md">Marca do veículo </span>
+                    <span *ngIf="!veiculoEntity.idVeiculo" style="color: #000; font-size: 12px; float: right;"> {{dadosMarca.marca}} <ion-icon name="arrow-dropdown" style="font-size: 18px; color: #999"></ion-icon></span>
+                    <span *ngIf="veiculoEntity.idVeiculo" style="color: #000; font-size: 12px; float: right;"> {{veiculoEntity.nomeMarca}} <ion-icon name="arrow-dropdown" style="font-size: 18px; color: #999"></ion-icon></span>
+                    <!-- <ion-icon name="arrow-dropdown"></ion-icon> -->
                 </p>
 
                 <!-- <ion-label class="my-label">Marca do veículo</ion-label>

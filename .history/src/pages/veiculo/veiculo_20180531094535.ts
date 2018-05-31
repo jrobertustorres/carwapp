@@ -236,6 +236,8 @@ export class VeiculoPage {
       this.veiculoService.detalheVeiculosCliente(this.veiculoEntity)
       .then((veiculoEntityResult: VeiculoEntity) => {
         this.veiculoEntity = veiculoEntityResult;
+
+        console.log(this.veiculoEntity.nomeMarca);
         this.dadosMarca.marca = this.veiculoEntity.nomeMarca;
 
         this.loading.dismiss();
@@ -265,6 +267,7 @@ export class VeiculoPage {
       if (data) {
         this.idMarca = data.idMarca;
         this.dadosMarca = data;
+        console.log(this.dadosMarca);
         this.findListModeloVeiculo(data.idMarca);
       }
     });

@@ -29,8 +29,7 @@ export class VeiculoPage {
   public placa: string;
   private toastMessage: string;
   public idMarca: string;
-  public marca: string;
-  public dadosMarca = {'idMarca': this.idMarca, 'marca': this.marca};
+  public dadosMarca = {};
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -236,7 +235,8 @@ export class VeiculoPage {
       this.veiculoService.detalheVeiculosCliente(this.veiculoEntity)
       .then((veiculoEntityResult: VeiculoEntity) => {
         this.veiculoEntity = veiculoEntityResult;
-        this.dadosMarca.marca = this.veiculoEntity.nomeMarca;
+
+        console.log(this.veiculoEntity);
 
         this.loading.dismiss();
         this.findListModeloVeiculo(veiculoEntityResult.idMarca);
