@@ -1,0 +1,35 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Detalhe do histórico</span>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable">
+
+    <div padding *ngIf="historicoVeiculoEntity.idOrcamentoFormat">
+        <p>Nr. orçamento: <b>{{ historicoVeiculoEntity.idOrcamentoFormat }}</b></p>
+        <p>Data do serviço: {{ historicoVeiculoEntity.dataServicoFormat }}</p>
+        <p>Valor do serviço: {{ historicoVeiculoEntity.valorServicoCotacaoFormat }}</p>
+        <p>Serviço: {{ historicoVeiculoEntity.descricaoServico }}</p>
+        <p>{{ historicoVeiculoEntity.tipoServicoServicoFormat }}</p>
+
+        <hr style="border-top: 1px solid #999;">
+
+        <p>Placa do veículo: <b>{{ historicoVeiculoEntity.placaFrotaFormat }}</b></p>
+        <p>Km: {{ historicoVeiculoEntity.kmVeiculoFormat }}</p>
+
+        <hr style="border-top: 1px solid #999;">
+
+        <p>Fornecedor: {{ historicoVeiculoEntity.nomeFornecedor }}</p>
+        <p>Observação do fornecedor: {{ historicoVeiculoEntity.observacaoServicoFornecedor }}</p>
+
+    </div>
+
+</ion-content>
