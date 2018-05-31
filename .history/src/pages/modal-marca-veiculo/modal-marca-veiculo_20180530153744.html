@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>
+            Marcas
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="closeModal()">
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item *ngFor="let marcaVeiculo of marcasVeiculo">
+        <ion-label style="color: #000">
+            <img *ngIf="!marcaVeiculo.logo" src="assets/imgs/logo.png" />
+            <img *ngIf="marcaVeiculo.logo" src="{{marcaVeiculo.logo}}" />
+            <!-- <img *ngIf="marcaVeiculo.logo" [src]="sanitizer.bypassSecurityTrustUrl('data:image/jpeg;base64,'+marcaVeiculo.logo)" /> -->
+            <!-- <img *ngIf="marcaVeiculo.logo" [src]="marcaVeiculo.logo" /> -->
+            <!-- {{marcasVeiculo.marca}} -->
+            <!-- <img src="assets/imgs/logo.png" style="width: 30px;margin-right: 5%;" /> -->
+        </ion-label>
+        <ion-radio value="{{marcaVeiculo.idMarca}}" (click)="setMarca(marcaVeiculo.idMarca)"></ion-radio>
+    </ion-item>
+
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>
+            Marcas
+        </ion-title>
+        <ion-buttons start *ngIf="marcasVeiculo?.length > 0">
+            <button ion-button icon-only (click)="showFilter = !showFilter">
+                <ion-icon ios="ios-search" md="md-search"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button (click)="closeModal()">
+              <ion-icon ios="ios-close" md="md-close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)" *ngIf="showFilter" placeholder="Buscar"></ion-searchbar>
+
+    <ion-item *ngFor="let marcaVeiculo of marcasVeiculo" (click)="setMarca(marcaVeiculo.idMarca, marcaVeiculo.marca)">
+        <ion-label style="color: #000; max-width: 40px;">
+            <img *ngIf="!marcaVeiculo.logo" src="assets/imgs/no-photo.png" style="width: 30px;" />
+            <img *ngIf="marcaVeiculo.logo" src="{{marcaVeiculo.logo}}" style="width: 30px;" />
+        </ion-label>
+        <ion-label style="color: #000">
+            {{marcaVeiculo.marca}}
+        </ion-label>
+        <!-- <ion-radio value="{{marcaVeiculo.idMarca}}" (click)="setMarca(marcaVeiculo.idMarca)"></ion-radio> -->
+    </ion-item>
+
+</ion-content>

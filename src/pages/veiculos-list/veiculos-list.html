@@ -18,7 +18,17 @@
     <div text-wrap *ngIf="veiculosResult?.length > 0 && historicoPage == true" style="text-align: center;">
         <p><strong>Selecione um veículo para ver o histórico</strong></p>
     </div>
-    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="veiculosResult?.length == 0">
+
+    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="veiculosResult?.length == 0 && historicoPage">
+        <div style="text-align: center;color: #484848;"><strong>Para ver o histórico é necessário informar ao menos um veículo. <br>E você ainda não possui nenhum veículo cadastrado</strong></div>
+        <div style="text-align: center;">
+            <ion-icon style="font-size: 30px;color: #484848;" ios="ios-car" md="md-car"></ion-icon>
+        </div>
+        <div>
+            <button ion-button block (click)="inserirVeiculo()" color="navbarColor" class="margin-button-save span-style-color">Inserir veículo</button>
+        </div>
+    </div>
+    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="veiculosResult?.length == 0 && !historicoPage">
         <div style="text-align: center;color: #484848;"><strong>Você ainda não possui nenhum veículo cadastrado</strong></div>
         <div style="text-align: center;">
             <ion-icon style="font-size: 30px;color: #484848;" ios="ios-car" md="md-car"></ion-icon>
