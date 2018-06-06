@@ -128,6 +128,7 @@ export class OficinasListPage {
   }
 
   fornecedoresChecked(fornecedor, isAtendimento) {
+    console.log(isAtendimento);
     if(isAtendimento) {
       if (this.listIdFornecedor.indexOf(fornecedor) == -1) {
         this.listIdFornecedor.push(fornecedor);
@@ -168,7 +169,7 @@ export class OficinasListPage {
   showHorarioAtendimentoAlert() {
     let prompt = this.alertCtrl.create({
       title: 'Horário atendimento',
-      subTitle: "Não é possível selecionar este fornecedor, pois ele não está aberto no momento!",
+      subTitle: "Não é possível lançar o orçamento, pois o fornecedor não está aberto no momento!",
       buttons: [
         {
           text: 'OK',

@@ -143,9 +143,10 @@ export class VeiculosListPage {
     .removerVeiculo(this.veiculoEntity)
     .then((veiculoEntityResult: VeiculoEntity) => {
       let index = this.veiculosResult.indexOf(idVeiculo);
-      // if(index > -1){
+      if(index > -1){
         this.veiculosResult.splice(index, 1);
-      // }
+        console.log(this.veiculosResult);
+      }
       this.loading.dismiss();
       this.toastMessage = 'O veículo foi removido!';
 

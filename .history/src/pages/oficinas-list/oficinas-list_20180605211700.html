@@ -43,7 +43,7 @@
                     <ion-icon ios="ios-alarm" md="md-alarm" style="font-size: 18px;"></ion-icon> {{ fornecedor.horarioAtendimento }}
                 </h4>
             </ion-label>
-            <ion-checkbox color="dark" (click)="fornecedoresChecked(fornecedor.idFornecedor, fornecedor.isAtendimento)"></ion-checkbox>
+            <ion-checkbox color="dark" (click)="fornecedoresChecked(fornecedor.idFornecedor)"></ion-checkbox>
         </ion-item>
 
         <!-- <ion-item-sliding #slidingItem *ngFor="let fornecedor of fornecedores" text-wrap>
@@ -75,7 +75,7 @@
     <ion-grid>
         <ion-row>
             <ion-col no-padding>
-                <button no-margin ion-button full large icon-end color="button-save-color" (click)="verificaRegistrosSelecionados(isAtendimento)">
+                <button no-margin ion-button full large icon-end color="button-save-color" (click)="verificaRegistrosSelecionados(fornecedor.isAtendimento)">
                     <span style="font-size: 12px;">LANÇAR ORÇAMENTO</span>
                     <ion-icon name="ios-arrow-forward"></ion-icon>
                 </button>

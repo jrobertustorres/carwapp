@@ -33,7 +33,6 @@ export class OficinasListPage {
   public idVeiculo: any;
   public idCidade: number;
   public contador: number;
-  // public isAtendimento: boolean;
 
   public listIdVeiculo: number[] = [];
   public listIdFornecedor: number[] = [];
@@ -90,6 +89,7 @@ export class OficinasListPage {
       this.loading.present();
     }
 
+    // this.fornecedorEntity = new FornecedorEntity();
     this.fornecedorEntity.idServico = this.idServico;
 
     if (!this.idCidade) {
@@ -105,6 +105,8 @@ export class OficinasListPage {
     .then((dados) => {
     this.fornecedores = dados;
     this.fornecedorEntity.limitDados = this.fornecedores.length;
+
+    console.log(this.fornecedores);
 
     localStorage.setItem('fornecedoresMapa', JSON.stringify(this.fornecedores));
     this.loading.dismiss();
@@ -127,48 +129,44 @@ export class OficinasListPage {
     this.navCtrl.push(MapPage);
   }
 
-  fornecedoresChecked(fornecedor, isAtendimento) {
-    if(isAtendimento) {
-      if (this.listIdFornecedor.indexOf(fornecedor) == -1) {
-        this.listIdFornecedor.push(fornecedor);
-        this.contador = this.contador +1;
-      }else{
-        this.listIdFornecedor.splice(this.listIdFornecedor.indexOf( fornecedor),1);
-        this.contador = this.contador == 0 ? this.contador : this.contador-1;
-      }
-    } else {
-      this.showHorarioAtendimentoAlert();
+  fornecedoresChecked(fornecedor) {
+    if (this.listIdFornecedor.indexOf(fornecedor) == -1) {
+      this.listIdFornecedor.push(fornecedor);
+      this.contador = this.contador +1;
+    }else{
+      this.listIdFornecedor.splice(this.listIdFornecedor.indexOf( fornecedor),1);
+      this.contador = this.contador == 0 ? this.contador : this.contador-1;
     }
   }
 
   verificaRegistrosSelecionados() {
-      if (localStorage.getItem(Constants.POSSUI_VEICULO) == 'true') {
-        if (this.listIdFornecedor.length == 0) {
-          this.showAlert();
-        } else {
-          
-          this.listIdVeiculo.push(this.idVeiculo);
-          this.servicoOrcamentoEntity = new ServicoOrcamentoEntity();
-          this.servicoOrcamentoEntity.idServico = this.idServico;
-
-          this.orcamentoEntity.listIdVeiculo = this.listIdVeiculo;
-          this.orcamentoEntity.listIdFornecedor = this.listIdFornecedor;
-          this.orcamentoEntity.listServicoOrcamento = [];
-          this.orcamentoEntity.listServicoOrcamento.push(this.servicoOrcamentoEntity); // idservico e descricao
-
-          this.navCtrl.push(LancarOrcamentoPage, {
-            orcamentoEntity: this.orcamentoEntity}
-          );
-        }
+    if (localStorage.getItem(Constants.POSSUI_VEICULO) == 'true') {
+      if (this.listIdFornecedor.length == 0) {
+        this.showAlert();
       } else {
-        this.showVeiculoAlert();
+        this.listIdVeiculo.push(this.idVeiculo);
+        this.servicoOrcamentoEntity = new ServicoOrcamentoEntity();
+        this.servicoOrcamentoEntity.idServico = this.idServico;
+
+        this.orcamentoEntity.listIdVeiculo = this.listIdVeiculo;
+        this.orcamentoEntity.listIdFornecedor = this.listIdFornecedor;
+        this.orcamentoEntity.listServicoOrcamento = [];
+        this.orcamentoEntity.listServicoOrcamento.push(this.servicoOrcamentoEntity); // idservico e descricao
+
+        this.navCtrl.push(LancarOrcamentoPage, {
+          orcamentoEntity: this.orcamentoEntity}
+        );
       }
+    } else {
+      this.showVeiculoAlert();
+    }
+
   }
 
-  showHorarioAtendimentoAlert() {
+  showHorárioAtendimentoAlert() {
     let prompt = this.alertCtrl.create({
       title: 'Horário atendimento',
-      subTitle: "Não é possível selecionar este fornecedor, pois ele não está aberto no momento!",
+      subTitle: "Não é possível lançar o orçamento, pois o fornecedor não está aberto no momento!",
       buttons: [
         {
           text: 'OK',

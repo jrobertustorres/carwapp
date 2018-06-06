@@ -36,7 +36,8 @@ export class HistoricoVeiculoPage {
   getDetalheHistorico() {
     try {
       this.loading = this.loadingCtrl.create({
-        content: 'Aguarde...'
+        content: 'Aguarde...',
+        // dismissOnPageChange: true
       });
       this.loading.present();
 

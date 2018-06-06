@@ -8,7 +8,14 @@ export class HistoricoVeiculoEntity {
       public tipoServicoServicoFormat: string;
 
       public limitDados: number;
-      
+      public descricaoServico: string;
+      public observacaoServicoFornecedor: string;
+      public nomeFornecedor: string;
+      public placaFrotaFormat: string;
+      public kmVeiculoFormat: string;
+      public horasVeiculoFormat: string;
+      public valorServicoCotacaoFormat: string;
+
       constructor(){
       }
     

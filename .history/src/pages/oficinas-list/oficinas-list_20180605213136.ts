@@ -128,47 +128,51 @@ export class OficinasListPage {
   }
 
   fornecedoresChecked(fornecedor, isAtendimento) {
-    if(isAtendimento) {
-      if (this.listIdFornecedor.indexOf(fornecedor) == -1) {
-        this.listIdFornecedor.push(fornecedor);
-        this.contador = this.contador +1;
-      }else{
-        this.listIdFornecedor.splice(this.listIdFornecedor.indexOf( fornecedor),1);
-        this.contador = this.contador == 0 ? this.contador : this.contador-1;
-      }
-    } else {
-      this.showHorarioAtendimentoAlert();
+    console.log(isAtendimento);
+    if (this.listIdFornecedor.indexOf(fornecedor) == -1) {
+      this.listIdFornecedor.push(fornecedor);
+      this.contador = this.contador +1;
+    }else{
+      this.listIdFornecedor.splice(this.listIdFornecedor.indexOf( fornecedor),1);
+      this.contador = this.contador == 0 ? this.contador : this.contador-1;
     }
   }
 
   verificaRegistrosSelecionados() {
+    // console.log(isAtendimento);
+    // if(isAtendimento) {
+
       if (localStorage.getItem(Constants.POSSUI_VEICULO) == 'true') {
         if (this.listIdFornecedor.length == 0) {
           this.showAlert();
         } else {
           
-          this.listIdVeiculo.push(this.idVeiculo);
-          this.servicoOrcamentoEntity = new ServicoOrcamentoEntity();
-          this.servicoOrcamentoEntity.idServico = this.idServico;
+          // this.listIdVeiculo.push(this.idVeiculo);
+          // this.servicoOrcamentoEntity = new ServicoOrcamentoEntity();
+          // this.servicoOrcamentoEntity.idServico = this.idServico;
 
-          this.orcamentoEntity.listIdVeiculo = this.listIdVeiculo;
-          this.orcamentoEntity.listIdFornecedor = this.listIdFornecedor;
-          this.orcamentoEntity.listServicoOrcamento = [];
-          this.orcamentoEntity.listServicoOrcamento.push(this.servicoOrcamentoEntity); // idservico e descricao
+          // this.orcamentoEntity.listIdVeiculo = this.listIdVeiculo;
+          // this.orcamentoEntity.listIdFornecedor = this.listIdFornecedor;
+          // this.orcamentoEntity.listServicoOrcamento = [];
+          // this.orcamentoEntity.listServicoOrcamento.push(this.servicoOrcamentoEntity); // idservico e descricao
 
-          this.navCtrl.push(LancarOrcamentoPage, {
-            orcamentoEntity: this.orcamentoEntity}
-          );
+          // this.navCtrl.push(LancarOrcamentoPage, {
+          //   orcamentoEntity: this.orcamentoEntity}
+          // );
         }
       } else {
         this.showVeiculoAlert();
       }
+    // } else {
+    //   this.showHorarioAtendimentoAlert();
+    // }
+
   }
 
   showHorarioAtendimentoAlert() {
     let prompt = this.alertCtrl.create({
       title: 'Horário atendimento',
-      subTitle: "Não é possível selecionar este fornecedor, pois ele não está aberto no momento!",
+      subTitle: "Não é possível lançar o orçamento, pois o fornecedor não está aberto no momento!",
       buttons: [
         {
           text: 'OK',
