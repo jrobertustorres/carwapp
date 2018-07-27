@@ -52,35 +52,49 @@ export class AvaliacaoFornecedorPage {
     toast.present();
   }
 
-  enviarAvaliacao(rate) {
+  enviarAvaliacao(avaliacao) {
     try {
-      this.loading = this.loadingCtrl.create({
-        content: 'Aguarde...'
-      });
-      this.loading.present();
+      if(avaliacao) {
+        this.loading = this.loadingCtrl.create({
+          content: 'Aguarde...'
+        });
+        this.loading.present();
 
-      this.ordemServicoEntity.idOrdemServico = this.idOrdemServico;
+        this.ordemServicoEntity.idOrdemServico = this.idOrdemServico;
+        this.ordemServicoEntity.avaliacao = avaliacao;
 
-      this.ordemServicoService
-      .avaliacaoFornecedor(this.ordemServicoEntity)
-      .then((ordemServicoEntityResult: OrdemServicoEntity) => {
-        this.loading.dismiss();
-        this.presentToast();
-        setTimeout(() => {
-          this.navCtrl.setRoot(OrcamentosListPage);
-        }, 3000);
-      }, (err) => {
-        this.loading.dismiss();
-        this.alertCtrl.create({
-          subTitle: err.message,
-          buttons: ['OK']
-        }).present();
-      });
+        this.ordemServicoService
+        .avaliacaoFornecedor(this.ordemServicoEntity)
+        .then((ordemServicoEntityResult: OrdemServicoEntity) => {
+          this.loading.dismiss();
+          this.presentToast();
+          setTimeout(() => {
+            this.navCtrl.setRoot(OrcamentosListPage);
+          }, 3000);
+        }, (err) => {
+          this.loading.dismiss();
+          this.alertCtrl.create({
+            subTitle: err.message,
+            buttons: ['OK']
+          }).present();
+        });
+      } else {
+        this.alertAvaliacao();
+      }
     }catch (err){
       if(err instanceof RangeError){
       }
       console.log(err);
     }
+  }
+
+  alertAvaliacao() {
+    const alert = this.alertCtrl.create({
+      title: 'Avaliação!',
+      subTitle: 'Antes de salvar é necesário selecionar alguma estrela!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

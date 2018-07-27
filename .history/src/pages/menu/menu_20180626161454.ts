@@ -148,9 +148,13 @@ export class MenuPage implements OnInit{
           handler: () => {
             localStorage.removeItem(Constants.ID_USUARIO);
             localStorage.removeItem(Constants.TOKEN_USUARIO);
+            localStorage.removeItem(Constants.TOKEN_PUSH);
             localStorage.removeItem(Constants.NOME_PESSOA);
             localStorage.removeItem(Constants.EMAIL_PESSOA);
             localStorage.removeItem(Constants.POSSUI_VEICULO);
+            localStorage.removeItem(Constants.VERSION_NUMBER);
+            localStorage.removeItem('latitude');
+            localStorage.removeItem('longitude');
             localStorage.removeItem('clienteLogado');
             this.nav.setRoot(LoginPage);
             this.menuCtrl.close();

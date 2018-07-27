@@ -36,7 +36,7 @@
             <ion-input formControlName="emailUsuario" [(ngModel)]="usuarioDetalheEntity.emailUsuario" type="email" [readonly]="isReadOnly"></ion-input>
         </ion-item>
         <div *ngIf="(!dadosUsuarioForm.get('emailUsuario').valid && dadosUsuarioForm.get('emailUsuario').touched) && !dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">campo obrigatório</div>
-        <div *ngIf="dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">E-mail inválido</div>
+        <div *ngIf="dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">e-mail inválido</div>
 
         <ion-item>
             <ion-label stacked>Telefone</ion-label>

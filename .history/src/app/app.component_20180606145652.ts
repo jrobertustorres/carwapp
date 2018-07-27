@@ -91,6 +91,7 @@ export class MyApp {
     });
 
     pushObject.on('notification').subscribe((data: any) => {
+      console.log('message -> ' + data.message);
       //if user using app and push notification comes
       if (data.additionalData.foreground) {
         // if application open, show popup
@@ -137,5 +138,40 @@ export class MyApp {
      alert.present();
     }
   }
+
+  // pushsetup() {
+  //   console.log('dentro do setup');
+  //   const options: PushOptions = {
+  //    android: {
+  //        senderID: '577705174214'
+  //    },
+  //    ios: {
+  //        alert: 'true',
+  //        badge: true,
+  //        sound: 'false'
+  //    },
+  //    windows: {}
+  // };
+
+  // const pushObject: PushObject = this.push.init(options);
+
+  // pushObject.on('notification').subscribe((notification: any) => {
+  //   if (notification.additionalData.foreground) {
+  //     let youralert = this.alertCtrl.create({
+  //       title: 'New Push notification',
+  //       message: notification.message
+  //     });
+  //     youralert.present();
+  //   }
+  // });
+
+  // pushObject.on('registration').subscribe((registration: any) => {
+  //   console.log('dentro do registration');
+  //   console.log(registration);
+  //   // localStorage.setItem('tokenPush',data.registrationId);
+  // });
+
+  // pushObject.on('error').subscribe(error => alert('Error with Push plugin' + error));
+  // }
 
 }

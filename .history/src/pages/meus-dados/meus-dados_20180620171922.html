@@ -25,65 +25,27 @@
 
         <ion-item>
             <ion-label stacked>Cpf</ion-label>
-            <ion-input formControlName="cpfPessoa" [(ngModel)]="usuarioDetalheEntity.cpfPessoa" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></ion-input>
+            <!-- <ion-input formControlName="cpfPessoa" [(ngModel)]="usuarioDetalheEntity.cpfPessoa" type="text" (keyup)="getCampoCpf(usuarioDetalheEntity.cpfPessoa)" maxlength="14" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></ion-input> -->
+            <ion-input formControlName="cpfPessoa" [(ngModel)]="cpfPessoa" type="text" (keyup)="getCampoCpf(cpfPessoa)" maxlength="14" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></ion-input>
         </ion-item>
         <div *ngIf="!dadosUsuarioForm.get('cpfPessoa').valid && dadosUsuarioForm.get('cpfPessoa').touched" [ngClass]="'class-error-form'">campo obrigatório</div>
-        <div *ngIf="dadosUsuarioForm.get('cpfPessoa').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 20 caracteres</div>
+        <div *ngIf="dadosUsuarioForm.get('cpfPessoa').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 14 caracteres</div>
 
         <ion-item>
             <ion-label stacked>E-mail</ion-label>
             <ion-input formControlName="emailUsuario" [(ngModel)]="usuarioDetalheEntity.emailUsuario" type="email" [readonly]="isReadOnly"></ion-input>
         </ion-item>
         <div *ngIf="(!dadosUsuarioForm.get('emailUsuario').valid && dadosUsuarioForm.get('emailUsuario').touched) && !dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">campo obrigatório</div>
-        <div *ngIf="dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">E-mail inválido</div>
+        <div *ngIf="dadosUsuarioForm.get('emailUsuario').hasError('pattern')" [ngClass]="'class-error-form'">e-mail inválido</div>
 
         <ion-item>
             <ion-label stacked>Telefone</ion-label>
-            <ion-input formControlName="telefonePessoa" [(ngModel)]="usuarioDetalheEntity.telefonePessoa" type="text"></ion-input>
+            <ion-input formControlName="telefonePessoa" [(ngModel)]="telefonePessoa" type="text" (keyup)="getCampoTelefone(telefonePessoa)" placeholder="Digite apenas números" maxlength="15"></ion-input>
+            <!-- <ion-input formControlName="telefonePessoa" [(ngModel)]="usuarioDetalheEntity.telefonePessoa" type="text" maxlength="16"></ion-input> -->
         </ion-item>
         <div *ngIf="dadosUsuarioForm.get('telefonePessoa').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 50 caracteres</div>
 
-        <!-- <ion-item>
-            <ion-label stacked>Telefone 2</ion-label>
-            <ion-input formControlName="telefonePessoa2" [(ngModel)]="usuarioDetalheEntity.telefonePessoa2" type="text"></ion-input>
-        </ion-item>
-        <div *ngIf="dadosUsuarioForm.get('telefonePessoa2').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 50 caracteres</div> -->
-
-        <!-- <ion-item-divider class="item-divider-style">
-            <b style="color: #000">Endereço</b>
-            <div item-content>
-                <ion-icon ios="ios-home" md="md-home" item-start></ion-icon>
-            </div>
-        </ion-item-divider>
-
-        <ion-item>
-            <ion-label stacked>Endereço</ion-label>
-            <ion-textarea formControlName="endereco" [(ngModel)]="usuarioDetalheEntity.endereco" rows="5" maxLength="500"></ion-textarea>
-        </ion-item>
-        <div *ngIf="!dadosUsuarioForm.get('endereco').valid && dadosUsuarioForm.get('endereco').touched" [ngClass]="'class-error-form'">campo obrigatório</div>
-        <div *ngIf="dadosUsuarioForm.get('endereco').hasError('maxlength')" [ngClass]="'class-error-form'">máximo 300 caracteres</div>
-
-        <ion-list>
-            <ion-item>
-                <ion-label class="my-label">Estado</ion-label>
-                <ion-select formControlName="idEstado" [(ngModel)]="usuarioDetalheEntity.idEstado" (ionChange)="getCidadesByEstadoUsuario(usuarioDetalheEntity.idEstado)" cancelText="Cancelar">
-                    <ion-option *ngFor="let estado of estados" value="{{estado.idEstado}}">{{estado.nome}}</ion-option>
-                </ion-select>
-            </ion-item>
-            <div *ngIf="!dadosUsuarioForm.get('idEstado').valid && dadosUsuarioForm.get('idEstado').touched" [ngClass]="'class-error-form'">campo obrigatório</div>
-        </ion-list>
-
-        <ion-list>
-            <ion-item>
-                <ion-label class="my-label">Cidade</ion-label>
-                <ion-select formControlName="idCidade" [(ngModel)]="usuarioDetalheEntity.idCidade" cancelText="Cancelar">
-                    <ion-option *ngFor="let cidade of cidades" value="{{cidade.idCidade}}">{{cidade.cidade}}</ion-option>
-                </ion-select>
-            </ion-item>
-            <div *ngIf="!dadosUsuarioForm.get('idCidade').valid && dadosUsuarioForm.get('idCidade').touched" [ngClass]="'class-error-form'">campo obrigatório</div>
-        </ion-list> -->
-
-        <div *ngIf="!isLoggedIn">
+        <div *ngIf="!idUsuarioLogado">
             <ion-item-divider class="item-divider-style">
                 <b style="color: #000">Minha senha</b>
                 <div item-content>
@@ -105,7 +67,7 @@
         </div>
 
         <div>
-            <button ion-button block type="submit" color="navbarColor" class="margin-button-save span-style-color">SALVAR</button>
+            <button ion-button block type="submit" color="button-save-color" class="margin-button-save span-style-color">SALVAR</button>
         </div>
     </form>
 
