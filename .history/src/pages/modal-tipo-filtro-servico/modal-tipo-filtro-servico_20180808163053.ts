@@ -151,6 +151,7 @@ export class ModalTipoFiltroServicoPage {
   getLocation() {
     this.loading = this.loadingCtrl.create({
       content: 'Aguarde...',
+      dismissOnPageChange: true
     });
     this.loading.present();
 
@@ -163,9 +164,9 @@ export class ModalTipoFiltroServicoPage {
       this.fornecedorEntity.longitude = resp.coords.longitude;
       
       this.submeterTipoFiltroGps(this.fornecedorEntity);
-      this.loading.dismiss();
+      // this.loading.dismiss();
     }).catch((error) => {
-      this.loading.dismiss();
+      // this.loading.dismiss();
        console.log('Error getting location', error);
      });
   }
