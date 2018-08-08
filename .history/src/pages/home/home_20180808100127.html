@@ -1,0 +1,47 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+          </button>
+        <ion-title style="margin-top: 8px;">
+            <span>Home</span>
+            <!-- <div style="float: right;">
+                  <button ion-button icon-only (click)="openModalFiltro()" class="button-search">
+                      <ion-icon ios="ios-search" md="md-search" style="margin-top: 10px;"></ion-icon>
+                  </button>
+              </div> -->
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-stable card-background-page">
+
+    <ion-card style="height: 130px; background-color: #484848;" (click)="openTiposServicoList()">
+        <img src="assets/imgs/hive2.png" class="hive-img-style" />
+        <ion-icon ios="ios-search" md="ios-search" class="icon-style"></ion-icon>
+        <div class="card-title" padding>
+            <span class="span-style-home">
+                <b class="font-style-home">Buscar oficinas</b>
+            </span>
+        </div>
+    </ion-card>
+
+    <!-- <ion-card style="height: 130px;" (click)="openTiposServicoList()">
+        <img src="assets/imgs/oficina3.jpg" style="height: 130px; width: 100%;" />
+        <div class="card-title" style="color: #000"><b class="font-style-home">Buscar oficinas</b></div>
+    </ion-card> -->
+
+    <ion-card style="height: 130px;" (click)="openOrcamentosList()">
+        <img src="assets/imgs/oficina.jpg" style="height: 130px; width: 100%;" />
+        <div class="card-title" style="color: #000"><b class="font-style-home">Meus orçamentos</b></div>
+    </ion-card>
+
+    <ion-card style="height: 130px;" (click)="openHistoricosList()">
+        <img src="assets/imgs/historico.jpg" style="height: 130px; width: 100%;" />
+        <div class="card-title" style="color: #000;"><b class="font-style-home">Histórico de manutenção</b></div>
+    </ion-card>
+
+
+</ion-content>

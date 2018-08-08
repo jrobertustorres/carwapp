@@ -1,0 +1,62 @@
+page-home {
+    .card-background-page {
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+        .card-title {
+            position: absolute;
+            top: 30%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+        .icon-style {
+            // margin-top: 30px;
+            margin-top: 15%;
+            margin-right: 30px;
+            color: #FDB313;
+            float: right;
+            position: relative;
+            font-size: 50px;
+            z-index: 2;
+        }
+        .span-style-home {
+            float: left;
+            // margin-top: -8%;
+            font-size: 20px;
+            z-index: 2;
+            position: relative;
+        }
+    }
+    .hive-img-style {
+        height: 130px;
+        width: 100%;
+        position: absolute;
+        opacity: 0.4;
+        z-index: 1;
+    }
+    .card-img-style {
+        height: 110px;
+        width: 150px;
+        margin-top: 10px;
+        float: right;
+        position: relative;
+        z-index: 2;
+    }
+    // @import '../../www/assets/fonts/open-sans-regular.ttf';
+    .font-style-home {
+        // font-family: 'Open Sans';
+        font-size: 18px;
+        // text-shadow: 2px 2px 9px #000;
+        color: #fff;
+    }
+}

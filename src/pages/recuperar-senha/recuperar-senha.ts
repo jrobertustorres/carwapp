@@ -63,7 +63,8 @@ export class RecuperarSenhaPage implements OnInit {
       if (this.recuperarSenhaForm.valid) {
           this.loading = 'Aguarde...';
           this.loading = this.loadingCtrl.create({
-          content: this.loading
+          content: this.loading,
+          dismissOnPageChange: true
         });
         this.loading.present();
 
@@ -71,13 +72,13 @@ export class RecuperarSenhaPage implements OnInit {
         .recuperasenhaService(this.usuarioEntity)
         .then((usuarioEntityResult: UsuarioEntity) => {
     
-          this.loading.dismiss();
+          // this.loading.dismiss();
           this.presentToast();
           setTimeout(() => {
             this.navCtrl.push(LoginPage);
           }, 3000);
         }, (err) => {
-          this.loading.dismiss();
+          // this.loading.dismiss();
           this.alertCtrl.create({
             subTitle: err.message,
             buttons: ['OK']

@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>
+            Galeria de imagens
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="closeModal()">
+      <ion-icon ios="ios-close" md="md-close"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="content-stable">
+    <div class="h2-color-cards" text-wrap padding style="margin-top: 50px;" *ngIf="servicos?.length == 0 && tipoServicoHeader != 'Outros'">
+        <div style="text-align: center;color: #484848;"><strong>Não encontramos servicos relacionados com "{{ tipoServicoHeader }}"</strong></div>
+        <div style="text-align: center;">
+            <ion-icon style="font-size: 30px;color: #484848;" ios="ios-albums" md="md-albums"></ion-icon>
+        </div>
+    </div>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slide *ngFor="let imagem of imagensResult">
+            <img [src]="sanitizer.bypassSecurityTrustUrl(imagem)" class="custom-image" />
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

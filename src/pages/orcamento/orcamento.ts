@@ -51,7 +51,7 @@ export class OrcamentoPage {
       // this.loading.dismiss();
 
     }, (err) => {
-      this.loading.dismiss();
+      // this.loading.dismiss();
       this.alertCtrl.create({
         subTitle: err.message,
         buttons: ['OK']
