@@ -58,6 +58,7 @@ export class FornecedorDetalhePage {
       .then((fornecedorEntityResult: FornecedorEntity) => {
         this.fornecedorEntity = fornecedorEntityResult;
 
+        console.log(this.fornecedorEntity);
         this.loading.dismiss();
       }, (err) => {
         this.loading.dismiss();

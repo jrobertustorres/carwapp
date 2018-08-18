@@ -47,7 +47,6 @@ export class ModalTipoFiltroServicoPage {
               private geolocation: Geolocation,
               private diagnostic: Diagnostic,
               public modalCtrl: ModalController,
-              public platform: Platform,
               private locationAccuracy: LocationAccuracy,
               public navParams: NavParams) {
 
@@ -108,6 +107,8 @@ export class ModalTipoFiltroServicoPage {
         controle.markAsTouched();
       })
     } else {
+      // this.getLocation(); // RETIRAR ISSO - ESSA LINHA É PARA TESTES NO BROWSER
+      // this.getGpsStatus(); // DESCOMENTAR AQUI PARA RODAR NO CELULAR
       if (this.platform.is('cordova')) {
         this.getGpsStatus();
       } else {

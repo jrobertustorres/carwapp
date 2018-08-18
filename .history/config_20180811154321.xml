@@ -109,8 +109,5 @@
         <variable name="FIREBASE_VERSION" value="15.+" />
     </plugin>
     <plugin name="cordova.plugins.diagnostic" spec="^4.0.8" />
-    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
-    </plugin>
     <engine name="android" spec="^7.1.0" />
 </widget>

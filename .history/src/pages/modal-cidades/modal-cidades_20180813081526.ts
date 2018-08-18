@@ -14,7 +14,6 @@ export class ModalCidadesPage {
   public idEstado: number;
   private cidades = [];
   private aux = [];
-  private cidadesPorEstado: any = [];
 
   constructor(public navCtrl: NavController, 
               public loadingCtrl: LoadingController,
@@ -41,15 +40,16 @@ export class ModalCidadesPage {
     if (!q) {
       this.getCidadesByEstado(this.idEstado);
     }
-    // this.aux = this.aux.length == 0 ? this.cidades : this.aux; 
+    this.aux = this.aux.length == 0 ? this.cidades : this.aux; 
 
-    // if(this.cidades.length == 0) {
-    //   this.cidades = this.aux;
-    // }
+    if(this.cidades.length == 0) {
+      this.cidades = this.aux;
+    }
   
-    this.cidadesPorEstado = JSON.parse(localStorage.getItem('cidadesPorEstado'));
-    this.cidades = this.cidadesPorEstado;
-    this.cidades = this.cidades.filter((v) => {
+    let cidades: any = [];
+    cidades = localStorage.getItem('cidadesPorEstado');
+    // this.cidades = this.cidades.filter((v) => {
+    this.cidades = cidades.filter((v) => {
       if(v.cidade && q) {
         if (v.cidade.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
@@ -72,8 +72,11 @@ export class ModalCidadesPage {
         .then((listCidadesResult) => {
           this.cidades = listCidadesResult;
 
-          this.cidadesPorEstado = JSON.stringify(this.cidades);
-          localStorage.setItem('cidadesPorEstado', this.cidadesPorEstado);
+          console.log(this.cidades);
+
+          let cidadesPorEstado: any = JSON.stringify(this.cidades);
+          localStorage.setItem('cidadesPorEstado', cidadesPorEstado);
+          console.log(localStorage.getItem('cidadesPorEstado'));
 
           this.loading.dismiss();
         })

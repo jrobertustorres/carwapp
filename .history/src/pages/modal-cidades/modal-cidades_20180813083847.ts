@@ -47,6 +47,7 @@ export class ModalCidadesPage {
     //   this.cidades = this.aux;
     // }
   
+    // let cidades: any = [];
     this.cidadesPorEstado = JSON.parse(localStorage.getItem('cidadesPorEstado'));
     this.cidades = this.cidadesPorEstado;
     this.cidades = this.cidades.filter((v) => {

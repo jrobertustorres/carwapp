@@ -108,6 +108,8 @@ export class ModalTipoFiltroServicoPage {
         controle.markAsTouched();
       })
     } else {
+      // this.getLocation(); // RETIRAR ISSO - ESSA LINHA É PARA TESTES NO BROWSER
+      // this.getGpsStatus(); // DESCOMENTAR AQUI PARA RODAR NO CELULAR
       if (this.platform.is('cordova')) {
         this.getGpsStatus();
       } else {

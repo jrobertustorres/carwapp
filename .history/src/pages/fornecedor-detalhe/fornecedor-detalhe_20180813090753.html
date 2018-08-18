@@ -10,7 +10,7 @@
 
     <ion-card text-wrap *ngIf="fornecedorEntity.nome">
         <ion-card-content>
-            <ion-card-title style="font-size: 18px;">
+            <ion-card-title>
                 {{ fornecedorEntity.fantasia }}
             </ion-card-title>
             <p>
@@ -88,7 +88,7 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-fab #fab bottom right *ngIf="fornecedorEntity.nome">
+    <ion-fab #fab top right *ngIf="fornecedorEntity.nome">
         <button ion-fab color="primary" (click)="modalImagensFornecedorDetalhe(fab)">
             <ion-icon ios="ios-images" md="md-images"></ion-icon>
         </button>

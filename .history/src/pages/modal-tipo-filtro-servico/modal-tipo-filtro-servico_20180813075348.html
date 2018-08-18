@@ -41,9 +41,9 @@
 
                     <div [ngClass]="{'disableDiv': !idEstado}">
                         <p (click)="showModalCidades()" class="my-label">
-                            <span class="my-label label label-md" [ngClass]="{'cidade-label-style-disable': !idEstado, 'cidade-label-style-enable': idEstado}">Cidades </span>
+                            <span class="my-label label label-md" [ngClass]="{idEstado:'cidade-label-style-disable',idEstado:'cidade-label-style-enable'}[idEstado]">Cidades </span>
                             <span class="cidade-span-style"> {{dadosCidades.cidade}}
-                        <ion-icon name="arrow-dropdown" [ngClass]="{'cidade-dropdown-icon-cidade-disable': !idEstado, 'cidade-dropdown-icon-cidade-enable': idEstado}"></ion-icon>
+                        <ion-icon name="arrow-dropdown" class="cidade-dropdown-icon-cidade"></ion-icon>
                     </span>
                         </p>
                     </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, ViewController, ModalController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ViewController, ModalController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectSearchable } from 'ionic-select-searchable';
 
@@ -47,7 +47,6 @@ export class ModalTipoFiltroServicoPage {
               private geolocation: Geolocation,
               private diagnostic: Diagnostic,
               public modalCtrl: ModalController,
-              public platform: Platform,
               private locationAccuracy: LocationAccuracy,
               public navParams: NavParams) {
 
@@ -108,11 +107,8 @@ export class ModalTipoFiltroServicoPage {
         controle.markAsTouched();
       })
     } else {
-      if (this.platform.is('cordova')) {
-        this.getGpsStatus();
-      } else {
-        this.getLocation();
-      }
+      this.getLocation(); // RETIRAR ISSO - ESSA LINHA É PARA TESTES NO BROWSER
+      // this.getGpsStatus(); // DESCOMENTAR AQUI PARA RODAR NO CELULAR
     }
 
   }
@@ -158,38 +154,28 @@ export class ModalTipoFiltroServicoPage {
     });
     this.loading.present();
 
-    // const subscription = this.geolocation.watchPosition()
-    //                           .subscribe(position => {
-    //   console.log(position.coords.longitude + ' ' + position.coords.latitude);
-    //   // To stop notifications
-    //   subscription.unsubscribe();
+    const subscription = this.geolocation.watchPosition()
+                              .subscribe(position => {
+      console.log(position.coords.longitude + ' ' + position.coords.latitude);
+    });
 
+  // To stop notifications
+  subscription.unsubscribe();
+
+    // this.geolocation.getCurrentPosition().then((resp) => {
     //   this.fornecedorEntity = new FornecedorEntity();
-    //   localStorage.setItem('latitude', JSON.stringify(position.coords.latitude));
-    //   localStorage.setItem('longitude', JSON.stringify(position.coords.longitude));
+    //   localStorage.setItem('latitude', JSON.stringify(resp.coords.latitude));
+    //   localStorage.setItem('longitude', JSON.stringify(resp.coords.longitude));
 
-    //   this.fornecedorEntity.latitude = position.coords.latitude;
-    //   this.fornecedorEntity.longitude = position.coords.longitude;
+    //   this.fornecedorEntity.latitude = resp.coords.latitude;
+    //   this.fornecedorEntity.longitude = resp.coords.longitude;
 
     //   this.submeterTipoFiltroGps(this.fornecedorEntity);
     //   this.loading.dismiss();
-    // });
-
-
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.fornecedorEntity = new FornecedorEntity();
-      localStorage.setItem('latitude', JSON.stringify(resp.coords.latitude));
-      localStorage.setItem('longitude', JSON.stringify(resp.coords.longitude));
-
-      this.fornecedorEntity.latitude = resp.coords.latitude;
-      this.fornecedorEntity.longitude = resp.coords.longitude;
-
-      this.submeterTipoFiltroGps(this.fornecedorEntity);
-      this.loading.dismiss();
-    }).catch((error) => {
-      this.loading.dismiss();
-       console.log('Error getting location', error);
-     });
+    // }).catch((error) => {
+    //   this.loading.dismiss();
+    //    console.log('Error getting location', error);
+    //  });
   }
 
   showLocationText() {

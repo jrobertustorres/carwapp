@@ -51,7 +51,7 @@
                         <a ion-button clear item-end href="tel:+{{ detalheCotacaoEntity.telefoneFornecedor }}" class="a-style-button-phone">
                             <ion-chip style="width: 180px;">
                                 <ion-icon ios="ios-call" md="md-call"></ion-icon>
-                                <ion-label style="margin-top: 7px;"><b> {{ detalheCotacaoEntity.telefoneFornecedor }} </b></ion-label>
+                                <ion-label style="margin-top: 7px;"> {{ detalheCotacaoEntity.telefoneFornecedor }} </ion-label>
                             </ion-chip>
                         </a>
 
@@ -62,7 +62,7 @@
                         <a ion-button clear item-end href="tel:+{{ detalheCotacaoEntity.telefone2Fornecedor }}" class="a-style-button-phone">
                             <ion-chip style="width: 180px;">
                                 <ion-icon ios="ios-call" md="md-call"></ion-icon>
-                                <ion-label style="margin-top: 7px;"><b> {{ detalheCotacaoEntity.telefone2Fornecedor }} </b></ion-label>
+                                <ion-label style="margin-top: 7px;"> {{ detalheCotacaoEntity.telefone2Fornecedor }} </ion-label>
                             </ion-chip>
                         </a>
                     </ion-col>
@@ -102,7 +102,7 @@
 </ion-content>
 
 <!-- <ion-footer *ngIf="listaServicos?.length > 0"> -->
-<ion-footer *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'" style="background-color: #fff;">
+<ion-footer *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'">
     <ion-grid>
         <ion-row>
             <ion-col no-padding>

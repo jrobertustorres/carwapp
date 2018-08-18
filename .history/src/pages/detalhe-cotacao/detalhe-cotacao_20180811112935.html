@@ -49,7 +49,7 @@
                 <ion-row>
                     <ion-col col-6 style="margin-left: -20px;">
                         <a ion-button clear item-end href="tel:+{{ detalheCotacaoEntity.telefoneFornecedor }}" class="a-style-button-phone">
-                            <ion-chip style="width: 180px;">
+                            <ion-chip style="width: 150px;">
                                 <ion-icon ios="ios-call" md="md-call"></ion-icon>
                                 <ion-label style="margin-top: 7px;"><b> {{ detalheCotacaoEntity.telefoneFornecedor }} </b></ion-label>
                             </ion-chip>
@@ -58,9 +58,9 @@
                     </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 style="margin-left: -20px;" *ngIf="detalheCotacaoEntity.telefone2Fornecedor">
+                    <ion-col col-6 *ngIf="detalheCotacaoEntity.telefone2Fornecedor" style="margin-left: -20px;">
                         <a ion-button clear item-end href="tel:+{{ detalheCotacaoEntity.telefone2Fornecedor }}" class="a-style-button-phone">
-                            <ion-chip style="width: 180px;">
+                            <ion-chip style="width: 150px;">
                                 <ion-icon ios="ios-call" md="md-call"></ion-icon>
                                 <ion-label style="margin-top: 7px;"><b> {{ detalheCotacaoEntity.telefone2Fornecedor }} </b></ion-label>
                             </ion-chip>
@@ -85,7 +85,7 @@
         </ion-card-content>
     </ion-card>
 
-    <!-- <ion-fab bottom right #fab *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'">
+    <ion-fab bottom right #fab *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'">
         <button ion-fab><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
         <ion-fab-list side="top">
             <button ion-fab mini color="secondary" (click)="escolherCotacaoConfirm(fab)">
@@ -97,25 +97,6 @@
                     <div  class="label"dir="rtl">Galeria de Imagens</div>
                 </button>
         </ion-fab-list>
-    </ion-fab> -->
+    </ion-fab>
 
 </ion-content>
-
-<!-- <ion-footer *ngIf="listaServicos?.length > 0"> -->
-<ion-footer *ngIf="detalheCotacaoEntity.idOrcamento != null && detalheCotacaoEntity.statusCotacaoEnum == 'RESPONDIDO'" style="background-color: #fff;">
-    <ion-grid>
-        <ion-row>
-            <ion-col no-padding>
-                <button no-margin ion-button full icon-end color="primary" (click)="modalImagensFornecedor()">
-                    <span class="span-style" style="font-size: 12px;"><b>Ver Galeria</b></span>
-                </button>
-            </ion-col>
-            <ion-col no-padding>
-                <button no-margin ion-button full icon-end color="secondaryColor" (click)="escolherCotacaoConfirm()">
-                    <span class="span-style" style="font-size: 12px;"><b>Escolher Fornecedor</b></span>
-                    <!-- <ion-icon ios="ios-paper-plane" md="md-paper-plane"></ion-icon> -->
-                </button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-</ion-footer>
