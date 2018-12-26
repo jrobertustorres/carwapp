@@ -21,16 +21,14 @@ export class OrcamentoService {
     try {
 
       return new Promise((resolve, reject) => {
-        // this._storage.get(Constants.TOKEN_USUARIO).then((tokenUsuario) => {
-          this._http.post(Constants.API_URL + 'lancarOrcamentoServico/'
-            + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(orcamentoEntity), this.options)
-            .map(res=>res.json())
-            .subscribe(data => {
-              resolve(data);
-            }, (err) => {
-              reject(err.json());
-            });
-        // });
+        this._http.post(Constants.API_URL + 'lancarOrcamentoServico/'
+          + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(orcamentoEntity), this.options)
+          .map(res=>res.json())
+          .subscribe(data => {
+            resolve(data);
+          }, (err) => {
+            reject(err.json());
+          });
       });
 
     } catch (e){
@@ -44,16 +42,14 @@ export class OrcamentoService {
     try {
 
         return new Promise((resolve, reject) => {
-          // this._storage.get(Constants.TOKEN_USUARIO).then((tokenUsuario) => {
-            this._http.post(Constants.API_URL + 'findOrcamentoByCliente/'
-              + localStorage.getItem(Constants.TOKEN_USUARIO), this.options)
-              .map(res=>res.json())
-              .subscribe(data => {
-                resolve(data);
-              }, (err) => {
-                reject(err.json());
-              });
-          // });
+          this._http.post(Constants.API_URL + 'findOrcamentoByCliente/'
+            + localStorage.getItem(Constants.TOKEN_USUARIO), this.options)
+            .map(res=>res.json())
+            .subscribe(data => {
+              resolve(data);
+            }, (err) => {
+              reject(err.json());
+            });
         });
 
     } catch (e){
@@ -67,16 +63,14 @@ export class OrcamentoService {
     try {
 
       return new Promise((resolve, reject) => {
-        // this._storage.get(Constants.TOKEN_USUARIO).then((tokenUsuario) => {
-          this._http.post(Constants.API_URL + 'detalhaOrcamentoByCliente/'
-            + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idOrcamento), this.options)
-            .map(res=>res.json())
-            .subscribe(data => {
-              resolve(data);
-            }, (err) => {
-              reject(err.json());
-            });
-        // });
+        this._http.post(Constants.API_URL + 'detalhaOrcamentoByCliente/'
+          + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idOrcamento), this.options)
+          .map(res=>res.json())
+          .subscribe(data => {
+            resolve(data);
+          }, (err) => {
+            reject(err.json());
+          });
       });
 
     } catch (e){
@@ -111,16 +105,14 @@ export class OrcamentoService {
     try {
 
       return new Promise((resolve, reject) => {
-        // this._storage.get(Constants.TOKEN_USUARIO).then((tokenUsuario) => {
-          this._http.post(Constants.API_URL + 'escolherCotacao/'
-            + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idCotacao), this.options)
-            .map(res=>res.json())
-            .subscribe(data => {
-              resolve(data);
-            }, (err) => {
-              reject(err.json());
-            });
-        // });
+        this._http.post(Constants.API_URL + 'escolherCotacao/'
+          + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idCotacao), this.options)
+          .map(res=>res.json())
+          .subscribe(data => {
+            resolve(data);
+          }, (err) => {
+            reject(err.json());
+          });
       });
 
     } catch (e){
@@ -134,16 +126,14 @@ export class OrcamentoService {
     try {
 
         return new Promise((resolve, reject) => {
-          // this._storage.get(Constants.TOKEN_USUARIO).then((tokenUsuario) => {
-            this._http.post(Constants.API_URL + 'findCotacoesRespondidas/'
-              + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idOrcamento), this.options)
-              .map(res=>res.json())
-              .subscribe(data => {
-                resolve(data);
-              }, (err) => {
-                reject(err.json());
-              });
-          // });
+          this._http.post(Constants.API_URL + 'findCotacoesRespondidas/'
+            + localStorage.getItem(Constants.TOKEN_USUARIO), JSON.stringify(idOrcamento), this.options)
+            .map(res=>res.json())
+            .subscribe(data => {
+              resolve(data);
+            }, (err) => {
+              reject(err.json());
+            });
         });
 
     } catch (e){

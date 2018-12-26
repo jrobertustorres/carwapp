@@ -100,7 +100,7 @@ export class MenuPage implements OnInit{
   
     try {
       this.loading = this.loadingCtrl.create({
-        content: 'Aguarde...'
+        content: 'Autenticando...'
       });
       this.loading.present();
 

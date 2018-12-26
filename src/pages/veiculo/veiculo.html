@@ -26,18 +26,12 @@
 
         <ion-list>
             <ion-item>
-
                 <p (click)="showModalMarca()">
                     <span class="marca-label-style my-label label label-md">Marca do veículo </span>
                     <span class="marca-span-style"> {{dadosMarca.marca}}
                         <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
                     </span>
-                    <!-- <span *ngIf="veiculoEntity.idVeiculo" class="marca-span-style"> {{veiculoEntity.nomeMarca}}  -->
-                    <!-- <span *ngIf="veiculoEntity.idVeiculo" class="marca-span-style"> {{dadosMarca.marca}}
-                        <ion-icon name="arrow-dropdown" class="marca-dropdown-icon-marca"></ion-icon>
-                    </span> -->
                 </p>
-
             </ion-item>
             <div *ngIf="!veiculoForm.valid && veiculoForm.get('idMarca').touched && dadosMarca.idMarca == undefined" [ngClass]="'class-error-form'">campo obrigatório</div>
         </ion-list>
